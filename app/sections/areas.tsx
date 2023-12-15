@@ -5,41 +5,46 @@ import Section from '../components/Section'
 import { areas } from '../areas'
 import { MdArrowForward } from "react-icons/md";
 
+
+const START_OPACITY = "opacity-0"
+const START_TRANSFORM_1 = "translate-x-[-999px]"
+const START_TRANSFORM_2 = "translate-x-[999px]"
+const START_ROTATION = "rotate-[6deg]"
+
+const END_ROTATION = "rotate-0"
+const END_TRANSFORM = "translate-x-0"
+const END_OPACITY = "opacity-100"
 export default function Areas() {
   const [currAreaIdx, setCurrentAreaIdx] = useState(0)
   const currAreaRef = useRef<HTMLDivElement | null>(null)
   const imgRef = useRef<HTMLImageElement | null>(null)
   const addAnimation = (callback: () => void) => {
 
-    currAreaRef.current?.classList.remove(`opacity-100`)
-    currAreaRef.current?.classList.add(`opacity-0`)
-
-    imgRef.current?.classList.remove(`rotate-0`)
-    imgRef.current?.classList.remove(`rotate-[6deg]`)
-
-
-
-    currAreaRef.current?.classList.remove(`translate-x-[-999px]`)
-    currAreaRef.current?.classList.remove(`translate-x-[999px]`)
-    currAreaRef.current?.classList.add(`translate-x-[-999px]`)
+    currAreaRef.current?.classList.remove(END_OPACITY)
+    currAreaRef.current?.classList.add(START_OPACITY)
+    imgRef.current?.classList.remove(END_ROTATION)
+    imgRef.current?.classList.remove(START_ROTATION)
+    currAreaRef.current?.classList.remove(START_TRANSFORM_1)
+    currAreaRef.current?.classList.remove(START_TRANSFORM_2)
+    currAreaRef.current?.classList.add(START_TRANSFORM_1)
     setTimeout(() => {
       callback()
-      currAreaRef.current?.classList.remove(`translate-x-[999px]`)
-      currAreaRef.current?.classList.remove(`translate-x-[-999px]`)
-      currAreaRef.current?.classList.add(`translate-x-[999px]`)
+      currAreaRef.current?.classList.remove(START_TRANSFORM_2)
+      currAreaRef.current?.classList.remove(START_TRANSFORM_1)
+      currAreaRef.current?.classList.add(START_TRANSFORM_2)
       setTimeout(() => {
-        currAreaRef.current?.classList.remove(`translate-x-[999px]`)
-        currAreaRef.current?.classList.remove(`translate-x-0`)
-        currAreaRef.current?.classList.add(`translate-x-0`)
+        currAreaRef.current?.classList.remove(START_TRANSFORM_2)
+        currAreaRef.current?.classList.remove(END_TRANSFORM)
+        currAreaRef.current?.classList.add(END_TRANSFORM)
 
-        currAreaRef.current?.classList.remove(`opacity-0`)
-        currAreaRef.current?.classList.add(`opacity-100`)
+        currAreaRef.current?.classList.remove(START_OPACITY)
+        currAreaRef.current?.classList.add(END_OPACITY)
 
-        imgRef.current?.classList.add(`rotate-[6deg]`)
+        imgRef.current?.classList.add(START_ROTATION)
         setTimeout(() => {
-        imgRef.current?.classList.remove(`rotate-[6deg]`)
+          imgRef.current?.classList.remove(START_ROTATION)
 
-          imgRef.current?.classList.add(`rotate-0`)
+          imgRef.current?.classList.add(END_ROTATION)
 
         }, 150)
       }, 150);

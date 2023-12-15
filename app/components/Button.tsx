@@ -6,9 +6,9 @@ type Props = {
   outline?: boolean
 } & HTMLAttributes<HTMLButtonElement>
 export default function Button(props: Props) {
-  const { children, black, outline = false, ...rest } = props
+  const { children, black, outline = false, className , ...rest } = props
   return (
-    <button className={`${outline ? 'border border-white' : 'bg-primary'} px-4 py-2 ${black ? 'text-black' : 'text-white'}`} {...rest}>
+    <button className={`${outline ? 'border border-white' : 'bg-primary'} px-4 py-2 ${black ? 'text-black' : 'text-white'} ${className}`} {...rest}>
       {children}
     </button>
   )
