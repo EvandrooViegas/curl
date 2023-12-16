@@ -79,7 +79,7 @@ export default function Navbar() {
 
 function Logo() {
   return (
-    <span className='text-3xl font-semibold'>FITNESS</span>
+    <span className='text-3xl font-semibold font-mono '>FITNESS\CURL</span>
 
   )
 }
