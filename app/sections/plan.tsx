@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react'
 import Section from '../components/Section'
 import { FaCheck } from "react-icons/fa6";
 import Button from '../components/Button';
-import AnimateElement from '@/compoents/AnimateElement';
+import AnimateElement from '@/app/components/AnimateElement';
 function getAnimationProps(i: number) {
   return {
     animateOnce: false,

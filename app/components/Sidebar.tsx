@@ -1,6 +1,6 @@
 "use client"
 import { AnimatePresence, motion } from 'framer-motion'
-import React, { HTMLAttributes, useRef } from 'react'
+import React, { HTMLAttributes, useEffect, useRef } from 'react'
 type Props = {
     isOpen: boolean,
     close: () => void
@@ -23,6 +23,16 @@ export default function Sidebar(props: Props) {
             close()
         }
     }
+
+    useEffect(() => {
+        if(isOpen) {
+            window.document.body.classList.add("overflow-y-hidden")
+            window.document.body.classList.remove("overflow-y-auto")
+        } else {
+            window.document.body.classList.remove("overflow-y-hidden")
+            window.document.body.classList.add("overflow-y-auto")
+        }
+    }, [isOpen])
     return (
         <AnimatePresence>
             {isOpen && (
@@ -34,13 +44,13 @@ export default function Sidebar(props: Props) {
                     onClick={onClick}
                 >
                    <motion.div
-                        initial={{ opacity: 0, x: 100 }}
+                        initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 100 }}
+                        exit={{ opacity: 0, x: 50 }}
                         ref={modalRef}
-                        className='bg-foreground text-white h-full '
+                        className='bg-black/50 backdrop-blur-xl text-white h-full '
                     >
-                        <div {...rest} className={`p-12 h-full ${className}`}  >
+                        <div {...rest} className={`p-20  h-full ${className}`}  >
                             {children}
                         </div>
                     </motion.div>

@@ -7,20 +7,25 @@ body {
   overflow-x: hidden;
 }
 
+.hero-bg {
+  background-image: url("https://emilypost.com/client_media/images/blogs/everyday-gym.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .nav-z {
   z-index: 10;
 }
 .sidebar-z {
   z-index: 20;
 }
-
 :root {
   --background: #161616;
   --foreground: #222222;
   --primary: rgba(164, 198, 27);
 
 }
-
 .max-app-width {
   max-width: 1500px;
 }

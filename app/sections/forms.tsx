@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Section from '../components/Section'
 import Button from '../components/Button'
 import { toast } from 'react-toastify';
-import AnimateElement from '@/compoents/AnimateElement';
+import AnimateElement from '@/app/components/AnimateElement';
 
 export default function Forms() {
     const [title, setTitle] = useState('');

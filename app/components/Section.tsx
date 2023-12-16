@@ -1,4 +1,4 @@
-import AnimateElement from "@/compoents/AnimateElement";
+import AnimateElement from "@/app/components/AnimateElement";
 import { HTMLAttributes } from "react";
 
 function getAnimationProps(i: number) {

@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react'
 import { FiBox } from "react-icons/fi";
 import Section from '../components/Section';
-import AnimateElement from '@/compoents/AnimateElement';
+import AnimateElement from '@/app/components/AnimateElement';
 function getAnimationProps(i: number) {
     return {
         animateOnce: false,
