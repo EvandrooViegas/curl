@@ -1,6 +1,6 @@
 "use client"
+import { AnimatePresence, motion } from 'framer-motion'
 import React, { HTMLAttributes, useRef } from 'react'
-import { motion, AnimatePresence } from "framer-motion"
 type Props = {
     isOpen: boolean,
     close: () => void
@@ -8,7 +8,7 @@ type Props = {
 } & HTMLAttributes<HTMLDivElement>
 export default function Sidebar(props: Props) {
     const { close, isOpen, children, className, ...rest } = props
-    console.log(className)
+
     const modalRef = useRef<HTMLDivElement | null>(null);
     const onClick = (e: any) => {
         const dimentions = modalRef.current?.getBoundingClientRect();
@@ -24,25 +24,28 @@ export default function Sidebar(props: Props) {
         }
     }
     return (
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.aside
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className={`transition-all fixed inset-0 flex justify-end bg-black/30 backdrop-blur`}
-                        onClick={onClick}
+        <AnimatePresence>
+            {isOpen && (
+                <motion.aside
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className={`fixed inset-0 flex justify-end bg-black/40`}
+                    onClick={onClick}
+                >
+                   <motion.div
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 100 }}
+                        ref={modalRef}
+                        className='bg-foreground text-white h-full '
                     >
-                        <motion.div initial={{ opacity: 0, x: 100 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: 100 }} ref={modalRef} className='bg-foreground text-white '
-                        >
-                            <div className={`p-24 h-full ${className}`} {...rest} >
+                        <div {...rest} className={`p-12 h-full ${className}`}  >
                             {children}
-                            </div>
-                        </motion.div>
-                    </motion.aside>
-                )}
-            </AnimatePresence>
+                        </div>
+                    </motion.div>
+                </motion.aside>
+            )}
+        </AnimatePresence>
     )
 }

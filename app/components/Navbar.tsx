@@ -25,20 +25,19 @@ export default function Navbar() {
           <IoIosMenu />
         </button>
       </div>
-
       <Sidebar close={close} isOpen={isOpen} className='flex flex-col justify-between ' >
         <Logo />
-       <div className='text-lg space-y-4'>
-        <span className='font-semibold'>Links:</span>
-       <ul className='flex flex-col '>
-        <NavLinks />
-        </ul>
-       </div>
+        <div className='text-lg space-y-4'>
+          <span className='font-semibold'>Links:</span>
+          <ul className='flex flex-col '>
+            <NavLinks />
+          </ul>
+        </div>
         <div className='flex flex-col gap-2 text-2xl'>
-        <NavButtons />
+          <NavButtons />
         </div>
       </Sidebar>
-    </nav>
+     </nav>
   )
 }
 
@@ -55,10 +54,10 @@ function NavLinks() {
   return (
     <>
       {links.map(link => (
-            <li key={link}>
-              <span>{link}</span>
-            </li>
-          ))}
+        <li key={link}>
+          <span>{link}</span>
+        </li>
+      ))}
     </>
 
   )

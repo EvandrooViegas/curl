@@ -71,7 +71,7 @@ export default function Areas() {
           </div>
         </div>
         <div className='absolute right-10 top-1/2 -translate-y-1/2'>
-          <ul className='flex flex-col gap-3 md:text-[80px] text-7xl'>
+          <ul className='flex flex-col gap-3 md:text-[80px] text-4xl'>
             {areas.map(area => area.name).map(name => (
               <li key={name}
                 className={`transition-all font-extrabold leading-none ${name === currArea.name ? 'opacity-100' : 'opacity-30'}`}

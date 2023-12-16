@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 
+body {
+  overflow-x: hidden;
+}
+
 .nav-z {
   z-index: 10;
 }
+.sidebar-z {
+  z-index: 20;
+}
+
 :root {
   --background: #161616;
   --foreground: #222222;
